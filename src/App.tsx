@@ -23,7 +23,7 @@ getAnalytics(app);
 function App() {
   const [count, setCount] = useState(0);
 
-  const notificationsState = useNotificationPermission();
+  const { permissionState, askForPermission } = useNotificationPermission();
 
   return (
     <>
@@ -36,7 +36,8 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      <h2>{notificationsState}</h2>
+      <h2>{permissionState}</h2>
+      <button onClick={askForPermission}>Ask for notifications permission</button>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
         <p>
@@ -53,6 +54,18 @@ export default App;
 function useNotificationPermission() {
   const [state, setState] = useState<string | undefined>();
 
+  const askForPermission = () => {
+    Notification.requestPermission().then((permission) => {
+      console.log(permission);
+      setState(permission.toString());
+      // If the user accepts, let's create a notification
+      if (permission === 'granted') {
+        const notification = new Notification('Hi there!');
+        console.log({ notification });
+      }
+    });
+  };
+
   useEffect(() => {
     if (!('Notification' in window)) {
       // Check if the browser supports notifications
@@ -67,22 +80,12 @@ function useNotificationPermission() {
       // console.log({ notification });
       setState('granted');
     } else if (Notification.permission !== 'denied') {
-      setTimeout(() => {
-        // We need to ask the user for permission
-        Notification.requestPermission().then((permission) => {
-          console.log(permission);
-          setState(permission.toString());
-          // If the user accepts, let's create a notification
-          if (permission === 'granted') {
-            const notification = new Notification('Hi there!');
-            console.log({ notification });
-          }
-        });
-      }, 10000);
+      // We need to ask the user for permission
+      askForPermission();
     }
   }, []);
 
   // At last, if the user has denied notifications, and you
   // want to be respectful there is no need to bother them anymore.
-  return state;
+  return { permissionState: state, askForPermission };
 }
