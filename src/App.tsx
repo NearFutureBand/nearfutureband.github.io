@@ -67,16 +67,18 @@ function useNotificationPermission() {
       // console.log({ notification });
       setState('granted');
     } else if (Notification.permission !== 'denied') {
-      // We need to ask the user for permission
-      Notification.requestPermission().then((permission) => {
-        console.log(permission);
-        setState(permission.toString());
-        // If the user accepts, let's create a notification
-        if (permission === 'granted') {
-          const notification = new Notification('Hi there!');
-          console.log({ notification });
-        }
-      });
+      setTimeout(() => {
+        // We need to ask the user for permission
+        Notification.requestPermission().then((permission) => {
+          console.log(permission);
+          setState(permission.toString());
+          // If the user accepts, let's create a notification
+          if (permission === 'granted') {
+            const notification = new Notification('Hi there!');
+            console.log({ notification });
+          }
+        });
+      }, 10000);
     }
   }, []);
 
