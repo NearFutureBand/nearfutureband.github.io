@@ -5,6 +5,7 @@ import './App.css';
 
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
+import { getMessaging, getToken } from 'firebase/messaging';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDmu8NQ1kfFCvYDabdxQkiExo02ICx7KNM',
@@ -19,11 +20,23 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 getAnalytics(app);
+const messaging = getMessaging(app);
 
 function App() {
   const [count, setCount] = useState(0);
+  const [fcmToken, setFcmToken] = useState<string | undefined>();
 
   const { permissionState, askForPermission } = useNotificationPermission();
+
+  useEffect(() => {
+    if (permissionState === 'granted') {
+      getToken(messaging, {
+        vapidKey: 'BPDY0gTMm4zHdDd7VG1VeE9-c7aQBZxYZQFxoYX20LNncayOyC0oaYyzN0-bFp2hpTbn-NbDqGHvbP8uDGO5p8c',
+      }).then((token) => {
+        setFcmToken(token);
+      });
+    }
+  }, [permissionState]);
 
   return (
     <>
@@ -37,6 +50,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <h2>{permissionState}</h2>
+      <h3>{fcmToken}</h3>
       <button onClick={askForPermission}>Ask for notifications permission</button>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
