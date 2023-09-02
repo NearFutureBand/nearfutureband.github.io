@@ -50,7 +50,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <h2>{permissionState}</h2>
-      <h3>{fcmToken}</h3>
+      <div style={{ width: '90%', wordWrap: 'break-word' }}>{fcmToken}</div>
       <button onClick={askForPermission}>Ask for notifications permission</button>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
