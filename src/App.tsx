@@ -53,8 +53,9 @@ function App() {
 
   const generateNotification = () => {
     setTimeout(() => {
+      alert('Test notification');
       new Notification('Test notification');
-    }, 10000);
+    }, 5000);
   };
 
   return (
