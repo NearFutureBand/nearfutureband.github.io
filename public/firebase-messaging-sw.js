@@ -23,16 +23,13 @@ firebase.initializeApp({
 // Retrieve an instance of Firebase Messaging so that it can handle background
 // messages.
 const messaging = firebase.messaging();
-console.log('[firebase-messaging-sw.js] alive');
+console.log('[firebase-messaging-sw.js] alive', self);
 
 messaging.onBackgroundMessage(function (payload) {
-  console.log('[firebase-messaging-sw.js] Received background message ', payload);
-  // Customize notification here
-  const notificationTitle = 'Background Message Title';
-  const notificationOptions = {
-    body: 'Background Message body.',
-    icon: '/firebase-logo.png',
-  };
-
-  self.registration.showNotification(notificationTitle, notificationOptions);
+  console.log('[firebase-messaging-sw.js] Received background message ', payload); // payload.notification.body (or .title )
+  // try {
+  //   self.registration.showNotification(payload.notification.title, { body: 'Service worker thread' });
+  // } catch (error) {
+  //   console.log('[firebase-messaging-sw.js]', error);
+  // }
 });

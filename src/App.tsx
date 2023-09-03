@@ -24,6 +24,9 @@ const messaging = getMessaging(app);
 
 onMessage(messaging, (payload) => {
   console.log('Message received. ', payload);
+  if (payload.notification?.title) {
+    new Notification(payload.notification?.title, { body: 'Main thread notification' });
+  }
 });
 
 function App() {
