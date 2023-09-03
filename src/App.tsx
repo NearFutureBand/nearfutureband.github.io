@@ -5,7 +5,7 @@ import './App.css';
 
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
-import { getMessaging, getToken } from 'firebase/messaging';
+import { getMessaging, getToken, onMessage } from 'firebase/messaging';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDmu8NQ1kfFCvYDabdxQkiExo02ICx7KNM',
@@ -21,6 +21,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 getAnalytics(app);
 const messaging = getMessaging(app);
+
+onMessage(messaging, (payload) => {
+  console.log('Message received. ', payload);
+});
 
 function App() {
   const [count, setCount] = useState(0);
@@ -38,6 +42,17 @@ function App() {
     }
   }, [permissionState]);
 
+  const copyFcm = () => {
+    if (!fcmToken) return;
+    navigator.clipboard.writeText(fcmToken);
+  };
+
+  const generateNotification = () => {
+    setTimeout(() => {
+      new Notification('Test notification');
+    }, 10000);
+  };
+
   return (
     <>
       <div>
@@ -51,7 +66,9 @@ function App() {
       <h1>Vite + React</h1>
       <h2>{permissionState}</h2>
       <div style={{ width: '90%', wordWrap: 'break-word' }}>{fcmToken}</div>
+      <button onClick={copyFcm}>Copy FCM</button>
       <button onClick={askForPermission}>Ask for notifications permission</button>
+      <button onClick={generateNotification}>Generate notification ( 10 sec timeout )</button>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
         <p>
@@ -93,7 +110,7 @@ function useNotificationPermission() {
       // const notification = new Notification('Already set!');
       // console.log({ notification });
       setState('granted');
-    } else if (Notification.permission !== 'denied') {
+    } else {
       // We need to ask the user for permission
       askForPermission();
     }
