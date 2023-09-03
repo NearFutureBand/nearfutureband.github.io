@@ -37,13 +37,17 @@ function App() {
   const { permissionState, askForPermission } = useNotificationPermission();
 
   useEffect(() => {
-    if (permissionState === 'granted') {
-      getToken(messaging, {
-        vapidKey: 'BPDY0gTMm4zHdDd7VG1VeE9-c7aQBZxYZQFxoYX20LNncayOyC0oaYyzN0-bFp2hpTbn-NbDqGHvbP8uDGO5p8c',
-      }).then((token) => {
-        setFcmToken(token);
-      });
-    }
+    (async () => {
+      if (permissionState === 'granted') {
+        const serviceWorkerRegistration = await navigator.serviceWorker.register('/firebase-messaging-sw.js');
+        getToken(messaging, {
+          vapidKey: 'BPDY0gTMm4zHdDd7VG1VeE9-c7aQBZxYZQFxoYX20LNncayOyC0oaYyzN0-bFp2hpTbn-NbDqGHvbP8uDGO5p8c',
+          serviceWorkerRegistration,
+        }).then((token) => {
+          setFcmToken(token);
+        });
+      }
+    })();
   }, [permissionState]);
 
   const copyFcm = () => {
