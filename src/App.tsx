@@ -31,7 +31,7 @@ import OneSignal from 'react-onesignal';
 //   alert(payload.notification?.title);
 // });
 
-OneSignal.init({ appId: '484f4a51-583d-459e-a3e4-9148f72e068c' });
+OneSignal.init({ appId: 'ddd5565b-2665-442c-81ae-eabf72743b63' });
 
 function App() {
   const [count, setCount] = useState(0);
