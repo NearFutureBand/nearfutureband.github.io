@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
@@ -37,7 +37,7 @@ function App() {
   const [count, setCount] = useState(0);
   // const [fcmToken] = useState<string | undefined>();
 
-  // const { permissionState, askForPermission } = useNotificationPermission();
+  const { permissionState } = useNotificationPermission();
 
   // useEffect(() => {
   //   (async () => {
@@ -76,7 +76,7 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      {/* <h2>{permissionState}</h2> */}
+      <h2>{permissionState}</h2>
       {/* <div style={{ width: '90%', wordWrap: 'break-word' }}>{fcmToken}</div>
       <button onClick={copyFcm}>Copy FCM</button> */}
       {/* <button onClick={askForPermission}>Ask for notifications permission</button> */}
@@ -95,41 +95,42 @@ function App() {
 
 export default App;
 
-// function useNotificationPermission() {
-//   const [state, setState] = useState<string | undefined>();
+function useNotificationPermission() {
+  const [state, setState] = useState<string | undefined>();
 
-//   const askForPermission = () => {
-//     Notification.requestPermission().then((permission) => {
-//       console.log(permission);
-//       setState(permission.toString());
-//       // If the user accepts, let's create a notification
-//       if (permission === 'granted') {
-//         const notification = new Notification('Hi there!');
-//         console.log({ notification });
-//       }
-//     });
-//   };
+  const askForPermission = () => {
+    Notification.requestPermission().then((permission) => {
+      console.log(permission);
+      setState(permission.toString());
+      // If the user accepts, let's create a notification
+      if (permission === 'granted') {
+        const notification = new Notification('Hi there!');
+        console.log({ notification });
+      }
+    });
+  };
 
-//   useEffect(() => {
-//     if (!('Notification' in window)) {
-//       // Check if the browser supports notifications
-//       setState('not supported');
-//       return;
-//     }
-//     console.log(Notification.permission);
-//     if (Notification.permission === 'granted') {
-//       // Check whether notification permissions have already been granted;
-//       // if so, create a notification
-//       // const notification = new Notification('Already set!');
-//       // console.log({ notification });
-//       setState('granted');
-//     } else {
-//       // We need to ask the user for permission
-//       askForPermission();
-//     }
-//   }, []);
+  useEffect(() => {
+    if (!('Notification' in window)) {
+      // Check if the browser supports notifications
+      setState('not supported');
+      return;
+    }
+    console.log(Notification.permission);
+    if (Notification.permission === 'granted') {
+      // Check whether notification permissions have already been granted;
+      // if so, create a notification
+      // const notification = new Notification('Already set!');
+      // console.log({ notification });
+      setState('granted');
+    } else {
+      // We need to ask the user for permission
+      // askForPermission();
+      setState(Notification.permission.toString());
+    }
+  }, []);
 
-//   // At last, if the user has denied notifications, and you
-//   // want to be respectful there is no need to bother them anymore.
-//   return { permissionState: state, askForPermission };
-// }
+  // At last, if the user has denied notifications, and you
+  // want to be respectful there is no need to bother them anymore.
+  return { permissionState: state, askForPermission };
+}
