@@ -31,24 +31,35 @@ onMessage(messaging, (payload) => {
   alert(payload.notification?.title);
 });
 
+window.addEventListener('load', async () => {
+  await navigator.serviceWorker.ready;
+  await navigator.serviceWorker.getRegistrations();
+  // console.log(registrations);
+  const serviceWorkerRegistration = await navigator.serviceWorker.register('./firebase-messaging-sw.js', {
+    scope: '/firebase',
+  });
+  // console.log(serviceWorkerRegistration);
+  const token = await getToken(messaging, {
+    vapidKey: 'BPDY0gTMm4zHdDd7VG1VeE9-c7aQBZxYZQFxoYX20LNncayOyC0oaYyzN0-bFp2hpTbn-NbDqGHvbP8uDGO5p8c',
+    serviceWorkerRegistration,
+  });
+  console.log(token);
+});
+
 // OneSignal.init({ appId: 'ddd5565b-2665-442c-81ae-eabf72743b63' });
 
 function App() {
   const [count, setCount] = useState(0);
-  const [fcmToken, setFcmToken] = useState<string | undefined>();
+  const [fcmToken] = useState<string | undefined>();
 
   const { permissionState, askForPermission } = useNotificationPermission();
 
   useEffect(() => {
     (async () => {
       if (permissionState === 'granted') {
-        const serviceWorkerRegistration = await navigator.serviceWorker.register('/firebase-messaging-sw.js');
-        getToken(messaging, {
-          vapidKey: 'BPDY0gTMm4zHdDd7VG1VeE9-c7aQBZxYZQFxoYX20LNncayOyC0oaYyzN0-bFp2hpTbn-NbDqGHvbP8uDGO5p8c',
-          serviceWorkerRegistration,
-        }).then((token) => {
-          setFcmToken(token);
-        });
+        // setFcmToken(token);
+        const registrations = await navigator.serviceWorker.getRegistrations();
+        console.log('effect', registrations);
       }
     })();
   }, [permissionState]);
