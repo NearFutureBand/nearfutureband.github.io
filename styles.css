@@ -267,11 +267,6 @@ input:-webkit-autofill {
   }
 }
 
-#list {
-  position: relative;
-  margin-bottom: 100px;
-}
-
 .skills {
   position: absolute;
   left: 0;
