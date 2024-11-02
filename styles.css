@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "SFPro";
-  src: url("./fonts/SFProDisplay-Regular.ttf") format("truetype");
+  font-family: 'SFPro';
+  src: url('./fonts/SFProDisplay-Regular.ttf') format('truetype');
   font-weight: medium;
   font-style: normal;
 }
@@ -11,7 +11,7 @@
 
 @layer base {
   html {
-    font-family: "SFPro", system-ui, sans-serif;
+    font-family: 'SFPro', system-ui, sans-serif;
     background-color: #f8fafc;
     overflow-x: hidden;
   }
@@ -19,7 +19,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: "SFPro", sans-serif;
+  font-family: 'SFPro', sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -144,17 +144,6 @@ input:-webkit-autofill {
   -webkit-background-clip: text;
 }
 
-#for-machine-learning {
-  display: none;
-}
-
-#for-protocols {
-  display: none;
-}
-
-/* .skills {
-  display: none;
-} */
 .inactive {
   color: #020617;
 }
@@ -265,8 +254,16 @@ input:-webkit-autofill {
   }
 }
 
+#list {
+  position: relative;
+  margin-bottom: 100px;
+}
+
 .skills {
-  display: none;
+  position: absolute;
+  left: 0;
+  top: 120%;
+  display: flex;
   flex-wrap: wrap;
 }
 
@@ -278,11 +275,16 @@ input:-webkit-autofill {
   font-size: 13px;
   font-weight: 600;
   opacity: 0;
-  transform: translateY(-30px) scale(0);
+  transform: translateX(-200%) scale(0);
   transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
 }
 
-.skill.visible {
+.skill.enter {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateX(0) scale(1);
+}
+
+.skill.exit {
+  opacity: 0;
+  transform: translateX(-200%) scale(0);
 }
