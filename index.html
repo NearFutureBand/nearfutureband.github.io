@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+      integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          fontFamily: {
+            sfp: ["SFPro"],
+          },
+          extend: {
+            screens: {
+              320: { max: "320px" },
+              576: { min: "576px" },
+              768: { min: "768px" },
+              1024: { min: "1024px" },
+              1280: { min: "1280px" },
+              1920: { min: "1920px" },
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Celsor</title>
+  </head>
+  <body class="flex flex-col w-full" id="body">
+    <header
+      id="header"
+      class="sticky z-[30] items-center top-0 768:py-[34px] 576:py-6 py-[13px] px-4 576:px-[60px] 1024:px-[200px]"
+    >
+      <nav class="576:flex gap-[34px] w-full justify-end hidden items-center">
+        <a class="text-2xl font-normal hidden 576:block" href="#stack">Стек</a>
+        <a class="text-2xl font-normal hidden 576:block" href="#competitions"
+          >Компетенции</a
+        >
+        <a class="text-2xl font-normal hidden 576:block" href="#contacts"
+          >Контакты</a
+        >
+      </nav>
+
+      <svg
+        id="logo"
+        class="w-full logo logo-color"
+        viewBox="0 0 1526 359"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M178.981 358.306C143.752 358.306 112.663 351.081 85.7134 336.632C58.7639 322.184 37.7401 301.728 22.6418 275.265C7.54363 248.803 -0.0054726 217.551 -0.0054726 181.51C-0.0054726 155.21 4.37788 131.183 13.1446 109.429C22.0736 87.5118 34.5743 68.5984 50.6466 52.6885C66.8812 36.7786 85.9569 24.5214 107.874 15.9171C129.953 7.15034 154.061 2.76699 180.199 2.76699C208.61 2.76699 232.475 6.33861 251.794 13.4819C271.113 20.6251 288.565 30.7718 304.15 43.9218L263.726 110.403C254.31 100.662 242.946 93.4374 229.633 88.7294C216.321 83.859 201.629 81.4238 185.556 81.4238C169.647 81.4238 155.441 83.7778 142.941 88.4859C130.602 93.0316 120.05 99.6066 111.283 108.211C102.679 116.815 96.1036 127.205 91.5579 139.381C87.0122 151.557 84.7393 165.195 84.7393 180.293C84.7393 201.073 88.798 218.85 96.9153 233.624C105.195 248.397 116.965 259.761 132.226 267.716C147.486 275.509 165.75 279.405 187.018 279.405C202.278 279.405 217.376 277.132 232.312 272.587C247.41 267.879 261.697 260.33 275.172 249.939L312.187 317.881C296.439 330.057 277.607 339.879 255.69 347.347C233.773 354.653 208.204 358.306 178.981 358.306ZM471.81 358.306C444.536 358.306 420.59 352.867 399.972 341.99C379.354 330.95 363.281 315.608 351.755 295.965C340.228 276.158 334.465 253.024 334.465 226.561C334.465 207.405 337.793 189.79 344.449 173.718C351.268 157.645 360.684 143.765 372.697 132.076C384.873 120.387 399.16 111.377 415.557 105.045C432.116 98.5514 450.299 95.3044 470.105 95.3044C491.86 95.3044 511.26 99.2007 528.306 106.993C545.353 114.624 559.396 125.339 570.435 139.138C581.637 152.775 589.349 168.929 593.57 187.598C597.791 206.106 597.953 226.237 594.057 247.991H407.521C407.683 257.732 410.605 266.255 416.287 273.561C421.97 280.866 429.762 286.63 439.665 290.851C449.568 294.909 461.095 296.939 474.245 296.939C488.856 296.939 502.737 295.072 515.887 291.338C529.037 287.441 541.619 281.516 553.632 273.561L578.715 327.622C571.085 333.467 561.182 338.743 549.006 343.451C536.992 347.997 524.167 351.568 510.53 354.166C497.055 356.926 484.148 358.306 471.81 358.306ZM412.391 194.173H518.079C517.754 181.673 513.127 171.688 504.198 164.22C495.269 156.753 483.174 153.019 467.914 153.019C452.491 153.019 439.665 156.753 429.438 164.22C419.372 171.688 413.69 181.673 412.391 194.173ZM643.369 351V0.331795H723.244V351H643.369ZM883.13 357.819C860.077 357.819 838.971 354.977 819.815 349.295C800.82 343.613 784.423 335.577 770.624 325.187L795.463 270.395C808.937 278.999 823.386 285.818 838.809 290.851C854.232 295.721 868.843 298.156 882.643 298.156C895.306 298.156 904.965 296.452 911.622 293.042C918.278 289.471 921.606 284.357 921.606 277.701C921.606 271.856 918.521 267.554 912.352 264.794C906.345 262.034 894.494 259.031 876.798 255.784C843.355 250.102 818.841 240.767 803.255 227.779C787.832 214.629 780.121 196.69 780.121 173.961C780.121 157.727 784.585 143.521 793.515 131.345C802.444 119.169 814.782 109.753 830.529 103.097C846.439 96.2785 864.703 92.8692 885.321 92.8692C905.452 92.8692 924.447 95.5479 942.305 100.905C960.325 106.263 975.748 113.731 988.574 123.309L964.465 178.101C957.809 173.068 950.098 168.604 941.331 164.708C932.727 160.811 923.797 157.808 914.544 155.697C905.29 153.587 896.28 152.532 887.513 152.532C876.636 152.532 867.788 154.236 860.969 157.645C854.313 160.892 850.985 165.438 850.985 171.283C850.985 177.289 853.907 181.754 859.752 184.676C865.596 187.598 877.285 190.926 894.819 194.66C930.21 201.804 955.293 211.463 970.066 223.639C984.84 235.653 992.226 252.537 992.226 274.291C992.226 291.175 987.6 305.868 978.346 318.368C969.254 330.869 956.51 340.61 940.113 347.591C923.879 354.409 904.884 357.819 883.13 357.819ZM1162.91 358.306C1135.8 358.306 1111.86 352.38 1091.08 340.529C1070.3 328.515 1053.98 312.524 1042.13 292.555C1030.44 272.587 1024.6 250.67 1024.6 226.805C1024.6 209.434 1027.92 192.875 1034.58 177.127C1041.4 161.217 1050.98 147.174 1063.32 134.998C1075.65 122.66 1090.26 113 1107.15 106.019C1124.03 98.876 1142.62 95.3044 1162.91 95.3044C1190.03 95.3044 1213.97 101.311 1234.75 113.325C1255.53 125.176 1271.77 141.086 1283.46 161.055C1295.15 181.023 1300.99 202.94 1300.99 226.805C1300.99 244.176 1297.66 260.817 1291.01 276.727C1284.35 292.474 1274.85 306.436 1262.51 318.612C1250.18 330.788 1235.56 340.447 1218.68 347.591C1201.8 354.734 1183.21 358.306 1162.91 358.306ZM1162.91 289.633C1174.28 289.633 1184.51 287.117 1193.6 282.084C1202.69 276.889 1209.83 269.583 1215.03 260.167C1220.22 250.751 1222.82 239.63 1222.82 226.805C1222.82 213.817 1220.22 202.697 1215.03 193.443C1210 184.027 1202.93 176.802 1193.84 171.77C1184.75 166.575 1174.44 163.977 1162.91 163.977C1151.39 163.977 1141.08 166.575 1131.99 171.77C1122.9 176.802 1115.75 184.027 1110.56 193.443C1105.36 202.697 1102.77 213.817 1102.77 226.805C1102.77 239.63 1105.36 250.751 1110.56 260.167C1115.92 269.583 1123.14 276.889 1132.23 282.084C1141.32 287.117 1151.55 289.633 1162.91 289.633ZM1347.77 351V102.61H1427.64V131.589C1435.11 118.763 1445.01 109.429 1457.35 103.584C1469.69 97.7396 1483.08 94.8174 1497.53 94.8174C1503.05 94.8174 1508 95.1421 1512.39 95.7915C1516.77 96.4409 1521.07 97.1714 1525.29 97.9832L1515.8 180.049C1510.28 178.101 1504.43 176.559 1498.26 175.422C1492.09 174.124 1485.93 173.474 1479.76 173.474C1464.66 173.474 1452.16 177.858 1442.25 186.624C1432.51 195.229 1427.64 207.892 1427.64 224.613V351H1347.77Z"
+        />
+      </svg>
+      <div class="576:hidden flex justify-end w-full">
+        <svg
+          class="burger-color"
+          id="burger-icon"
+          width="22"
+          height="16"
+          viewBox="0 0 22 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M1.39961 0.800003C1.18744 0.800003 0.983953 0.884289 0.833924 1.03432C0.683895 1.18435 0.599609 1.38783 0.599609 1.6C0.599609 1.81218 0.683895 2.01566 0.833924 2.16569C0.983953 2.31572 1.18744 2.4 1.39961 2.4H20.5996C20.8118 2.4 21.0153 2.31572 21.1653 2.16569C21.3153 2.01566 21.3996 1.81218 21.3996 1.6C21.3996 1.38783 21.3153 1.18435 21.1653 1.03432C21.0153 0.884289 20.8118 0.800003 20.5996 0.800003H1.39961ZM0.599609 8C0.599609 7.78783 0.683895 7.58435 0.833924 7.43432C0.983953 7.28429 1.18744 7.2 1.39961 7.2H20.5996C20.8118 7.2 21.0153 7.28429 21.1653 7.43432C21.3153 7.58435 21.3996 7.78783 21.3996 8C21.3996 8.21218 21.3153 8.41566 21.1653 8.56569C21.0153 8.71572 20.8118 8.8 20.5996 8.8H1.39961C1.18744 8.8 0.983953 8.71572 0.833924 8.56569C0.683895 8.41566 0.599609 8.21218 0.599609 8ZM0.599609 14.4C0.599609 14.1878 0.683895 13.9843 0.833924 13.8343C0.983953 13.6843 1.18744 13.6 1.39961 13.6H20.5996C20.8118 13.6 21.0153 13.6843 21.1653 13.8343C21.3153 13.9843 21.3996 14.1878 21.3996 14.4C21.3996 14.6122 21.3153 14.8157 21.1653 14.9657C21.0153 15.1157 20.8118 15.2 20.5996 15.2H1.39961C1.18744 15.2 0.983953 15.1157 0.833924 14.9657C0.683895 14.8157 0.599609 14.6122 0.599609 14.4Z"
+          />
+        </svg>
+      </div>
+    </header>
+    <main class="flex flex-col w-full pt-[56px]">
+      <img
+        id="ball"
+        src="./img/ball.png"
+        class="576:max-w-[513px] inline-block max-w-[250px] h-auto absolute first-place-ball transition ease-in-out duration-300 z-[1]"
+      />
+
+      <section
+        id="section-stack"
+        class="px-4 576:px-[60px] 768:px-[66px] 1024:px-[200px] flex flex-col bg-[#F8FAFC]"
+      >
+        <div
+          class="z-[20] flex flex-col items-start py-[120px] 576:py-[154px] 768:pb-[76px] 768:pt-[200px] 1024:pb-[120px] 1024:pt-[250px] gap-10 576:gap-[52px] 768:gap-[60px] 1024:gap-[80px]"
+        >
+          <p
+            class="w-full 576:max-w-[647px] 768:max-w-[930px] 1024:max-w-[698px] text-[#020617] text-[34px] font-bold"
+          >
+            Оперативный пресейл и проектирование для максимально быстрого
+            запуска проекта. Аудит решений. Разработка и интеграция ML-моделей.
+            Создание веб-сервисов и UI/UX.
+          </p>
+        </div>
+        <div
+          class="z-[20] w-full flex flex-col items-start 768:items-end py-8 576:py-[64px] 768:py-[76px] 1024:py-[120px]"
+        >
+          <div class="flex flex-col items-start gap-[60px]">
+            <h3
+              class="text-xl font-semibold text-[#020617] 768:text-[28px] text-left"
+            >
+              Партнеры
+            </h3>
+            <div
+              class="flex flex-row flex-wrap w-full gap-12 576:max-w-[547px] 768:max-[871px] 1024:max-w-[698px] 1280:max-w-[561px]"
+            >
+              <img
+                src="./img/danieli.png"
+                alt="danieli logo"
+                class="h-[30px] w-auto"
+              />
+              <img
+                src="./img/rehau.png"
+                alt="rehau logo"
+                class="h-[30px] w-auto"
+              />
+              <img
+                src="./img/globus.png"
+                alt="globus logo"
+                class="h-[30px] w-auto"
+              />
+              <img
+                src="./img/lobachevskogo.png"
+                alt="lobachevskogo logo"
+                class="h-[30px] w-auto"
+              />
+              <img
+                src="./img/redcop.png"
+                alt="redcop logo"
+                class="h-[30px] w-auto"
+              />
+              <img src="./img/hse.png" alt="hse logo" class="h-[30px] w-auto" />
+              <img
+                src="./img/cokol.png"
+                alt="sokol logo"
+                class="h-[30px] w-auto"
+              />
+              <img src="./img/may.png" alt="may logo" class="h-[30px] w-auto" />
+              <img
+                src="./img/proton.png"
+                alt="proton logo"
+                class="h-[30px] w-auto"
+              />
+              <img
+                src="./img/harman.png"
+                alt="harman logo"
+                class="h-[30px] w-auto"
+              />
+              <img
+                src="./img/intel.png"
+                alt="intel logo"
+                class="h-[30px] w-auto"
+              />
+              <img src="./img/mil.png" alt="mil logo" class="h-[30px] w-auto" />
+              <img
+                src="./img/knyazhininskyUniversity.png"
+                alt="Knyazhininsky University logo"
+                class="h-[30px] w-auto"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          id="stack"
+          class="py-9 z-[20] gap-8 576:py-[60px] 768:py-[76px] 768:gap-[64px] 1024:pt-[104px] 1024:pb-[180px] flex flex-col 1280:flex-row items-start justify-start 1280:justify-between"
+        >
+          <h2
+            class="text-[48px] font-bold text-[#DC1F1F] 576:text-[72px] self-start leading-[85px]"
+          >
+            Стэк
+          </h2>
+          <div class="gap-12 flex flex-col">
+            <article id="list" class="flex flex-row flex-wrap gap-5">
+              <span
+                id="machine-learning"
+                class="cursor-pointer hover:text-[#DC1F1F] active text-xl 576:text-[28px] font-bold"
+                >Machine Learning</span
+              >
+              <span
+                id="protocols"
+                class="cursor-pointer text-xl hover:text-[#DC1F1F] 576:text-[28px] font-bold"
+                >Protocols</span
+              >
+              <span
+                id="architectures"
+                class="cursor-pointer text-xl hover:text-[#DC1F1F] 576:text-[28px] font-bold"
+                >Architectures</span
+              >
+              <span
+                id="frontend"
+                class="cursor-pointer text-xl hover:text-[#DC1F1F] 576:text-[28px] font-bold"
+                >Frontend</span
+              >
+              <span
+                id="backend"
+                class="cursor-pointer text-xl hover:text-[#DC1F1F] 576:text-[28px] font-bold"
+                >Backend</span
+              >
+              <span
+                id="brokers"
+                class="cursor-pointer text-xl hover:text-[#DC1F1F] 576:text-[28px] font-bold"
+                >Brokers</span
+              >
+              <span
+                id="proxy"
+                class="cursor-pointer text-xl hover:text-[#DC1F1F] 576:text-[28px] font-bold"
+                >Proxy</span
+              >
+              <span
+                id="hardware"
+                class="cursor-pointer text-xl hover:text-[#DC1F1F] 576:text-[28px] font-bold"
+                >Hardware</span
+              >
+              <span
+                id="infrastructure"
+                class="cursor-pointer text-xl hover:text-[#DC1F1F] 576:text-[28px] font-bold"
+                >Infrastructure</span
+              >
+              <span
+                id="ci-cd"
+                class="cursor-pointer text-xl hover:text-[#DC1F1F] 576:text-[28px] font-bold"
+                >CI/CD</span
+              >
+              <span
+                id="monitoring"
+                class="cursor-pointer text-xl hover:text-[#DC1F1F] 576:text-[28px] font-bold"
+                >Monitoring</span
+              >
+              <span
+                id="database"
+                class="cursor-pointer text-xl hover:text-[#DC1F1F] 576:text-[28px] font-bold"
+                >Database</span
+              >
+              <span
+                id="qa"
+                class="cursor-pointer text-xl hover:text-[#DC1F1F] 576:text-[28px] font-bold"
+                >QA</span
+              >
+              <span
+                id="management"
+                class="cursor-pointer text-xl hover:text-[#DC1F1F] 576:text-[28px] font-bold"
+                >Management</span
+              >
+              <span
+                id="methodology"
+                class="cursor-pointer text-xl hover:text-[#DC1F1F] 576:text-[28px] font-bold"
+                >Methodology</span
+              >
+              <span
+                id="ux-ui-design"
+                class="cursor-pointer text-xl hover:text-[#DC1F1F] 576:text-[28px] font-bold"
+                >UX/UI Design</span
+              >
+            </article>
+            <article
+              id="for-protocols"
+              class="skills gap-2.5 flex-row flex-wrap"
+            >
+              <span class="skill">BlueTooth Low Energy</span>
+              <span class="skill">NFC</span>
+              <span class="skill">SIP</span>
+              <span class="skill">SDP</span>
+              <span class="skill">RTP</span>
+              <span class="skill">IP family</span>
+              <span class="skill">GTP</span>
+              <span class="skill">DHCP</span>
+              <span class="skill">DNS</span>
+              <span class="skill">NTP</span>
+              <span class="skill">SFTP</span>
+              <span class="skill">HTTP/HTTPS</span>
+              <span class="skill">AMQP/MQTT</span>
+              <span class="skill">IMAP/POP/SMTP</span>
+              <span class="skill">IPSec</span>
+              <span class="skill">CAN</span>
+              <span class="skill">LIN</span>
+              <span class="skill">SPI</span>
+              <span class="skill">I2C</span>
+              <span class="skill">EBI</span>
+              <span class="skill">Telnet</span>
+              <span class="skill">ARP/RARP</span>
+              <span class="skill">CDMA</span>
+              <span class="skill">GSM</span>
+              <span class="skill">SS7</span>
+              <span class="skill">SMS</span>
+              <span class="skill">Label</span>
+            </article>
+            <article
+              id="for-architectures"
+              class="skills gap-2.5 flex-row flex-wrap"
+            >
+              <span class="skill">Solution architecture </span>
+              <span class="skill">Database and API architecture </span>
+              <span class="skill">Tech stack</span>
+              <span class="skill">C4/UML/PlantUML</span>
+            </article>
+            <article
+              id="for-frontend"
+              class="skills gap-2.5 flex-row flex-wrap"
+            >
+              <span class="skill">JS</span>
+              <span class="skill">TS</span>
+              <span class="skill">Vie</span>
+              <span class="skill">React</span>
+            </article>
+            <article id="for-backend" class="skills gap-2.5 flex-row flex-wrap">
+              <span class="skill">Dataset collection</span>
+              <span class="skill">Model training</span>
+              <span class="skill"
+                >Emotion & Engagement detection and recognition</span
+              >
+              <span class="skill">Face & Object detection and recognition</span>
+              <span class="skill">Object segmentation and classification </span>
+              <span class="skill">Real-time object detection </span>
+              <span class="skill">NLP</span>
+              <span class="skill">LLM</span>
+              <span class="skill">Trend evaluation</span>
+              <span class="skill">Text2Speech</span>
+              <span class="skill">Regression</span>
+              <span class="skill">CV</span>
+            </article>
+            <article id="for-brokers" class="skills gap-2.5 flex-row flex-wrap">
+              <span class="skill">RabbitMQ</span>
+              <span class="skill">ActiveMQ</span>
+              <span class="skill">Kafka</span>
+              <span class="skill">ZeroMQ</span>
+              <span class="skill">gRPC</span>
+            </article>
+            <article id="for-proxy" class="skills gap-2.5 flex-row flex-wrap">
+              <span class="skill">Caddy</span>
+              <span class="skill">NGINX</span>
+              <span class="skill">Apache</span>
+            </article>
+            <article
+              id="for-hardware"
+              class="skills gap-2.5 flex-row flex-wrap"
+            >
+              <span class="skill">Arduino</span>
+              <span class="skill">ARM</span>
+              <span class="skill"
+                >Intel x86/x64/Pentium/Itanium/Core (AMD64)</span
+              >
+              <span class="skill">Face & Object detection and recognition</span>
+              <span class="skill">Nvidia GPUs</span>
+            </article>
+            <article
+              id="for-infrastructure"
+              class="skills gap-2.5 flex-row flex-wrap"
+            >
+              <span class="skill">Dataset collection</span>
+              <span class="skill">Model training</span>
+              <span class="skill"
+                >Emotion & Engagement detection and recognition</span
+              >
+              <span class="skill">Face & Object detection and recognition</span>
+              <span class="skill">Object segmentation and classification</span>
+              <span class="skill">Real-time object detection</span>
+              <span class="skill">NLP</span>
+              <span class="skill">LLM</span>
+              <span class="skill">Trend evaluation</span>
+              <span class="skill">Text2Speech</span>
+              <span class="skill">Regression</span>
+              <span class="skill">CV</span>
+            </article>
+            <article id="for-ci-cd" class="skills gap-2.5 flex-row flex-wrap">
+              <span class="skill">ELK</span>
+              <span class="skill">GitlabCI</span>
+              <span class="skill">GitHub</span>
+              <span class="skill">Jenkins</span>
+              <span class="skill">Gitflow</span>
+            </article>
+            <article
+              id="for-monitoring"
+              class="skills gap-2.5 flex-row flex-wrap"
+            >
+              <span class="skill">ELK</span>
+              <span class="skill">Grafana</span>
+              <span class="skill">DataDog</span>
+              <span class="skill">Portainer</span>
+              <span class="skill">OpenAPI/Swagger</span>
+              <span class="skill">VictoriaMetrix </span>
+              <span class="skill">NewRelic</span>
+              <span class="skill">Prometheus</span>
+              <span class="skill">Zabbix</span>
+            </article>
+            <article
+              id="for-database"
+              class="skills gap-2.5 flex-row flex-wrap"
+            >
+              <span class="skill">ELK</span>
+              <span class="skill">Grafana</span>
+              <span class="skill">DataDog</span>
+              <span class="skill">Portainer</span>
+              <span class="skill">OpenAPI/Swagger</span>
+              <span class="skill">VictoriaMetrix </span>
+              <span class="skill">NewRelic</span>
+              <span class="skill">Prometheus</span>
+              <span class="skill">Zabbix</span>
+            </article>
+            <article id="for-qa" class="skills gap-2.5 flex-row flex-wrap">
+              <span class="skill">Manual/Autiotests</span>
+              <span class="skill">Postman</span>
+              <span class="skill">Gtest/GMock</span>
+              <span class="skill">RobotFramework</span>
+              <span class="skill">OpenAPI/Swagger</span>
+              <span class="skill">Selenium/Cypress/Playwright </span>
+              <span class="skill">K6</span>
+              <span class="skill">JMeter/Gatling/Locust/Mockito</span>
+              <span class="skill">JUnit/Pytest/TestNG</span>
+              <span class="skill">rspec</span>
+              <span class="skill">Charles</span>
+            </article>
+            <article
+              id="for-management"
+              class="skills gap-2.5 flex-row flex-wrap"
+            >
+              <span class="skill">Agile, Scrum, и Kanban</span>
+              <span class="skill">PBBook, BABOOK</span>
+              <span class="skill">Диаграммы Ганта</span>
+              <span class="skill"
+                >SWOT-анализ, PEST-анализ, Анализ Сценариев</span
+              >
+              <span class="skill">SMART цели</span>
+              <span class="skill"
+                >Диаграмма PERT и метод критического пути CPM
+              </span>
+              <span class="skill"
+                >Работа со стейкхолдерами, понимание их потребностей</span
+              >
+              <span class="skill"
+                >Составление четкого ТЗ и направление команды</span
+              >
+            </article>
+            <article
+              id="for-machine-learning"
+              class="skills flex gap-2.5 flex-row flex-wrap"
+            >
+              <span class="skill visible">Dataset collection</span>
+              <span class="skill visible">Model training</span>
+              <span class="skill visible"
+                >Emotion & Engagement detection and recognition</span
+              >
+              <span class="skill visible"
+                >Face & Object detection and recognition</span
+              >
+              <span class="skill visible"
+                >Object segmentation and classification</span
+              >
+              <span class="skill visible">Real-time object detection</span>
+              <span class="skill visible">NLP</span>
+              <span class="skill visible">LLM</span>
+              <span class="skill visible">Trend evaluation</span>
+              <span class="skill visible">Text2Speech</span>
+              <span class="skill visible">Regression</span>
+              <span class="skill visible">CV</span>
+            </article>
+            <article
+              id="for-ux-ui-design"
+              class="skills gap-2.5 flex-row flex-wrap"
+            >
+              <span class="skill">UX</span>
+              <span class="skill">UI</span>
+              <span class="skill">Interaction Design</span>
+              <span class="skill">Design Thinking</span>
+              <span class="skill">Design Systems</span>
+              <span class="skill">Visual Design</span>
+              <span class="skill">Wireframing</span>
+              <span class="skill">Prototyping</span>
+              <span class="skill">User Research</span>
+              <span class="skill">Data-Driven Design</span>
+              <span class="skill">A/B Testing</span>
+              <span class="skill"> Competitor Analysis</span>
+              <span class="skill"> Product Strategy</span>
+              <span class="skill"> Project Management</span>
+              <span class="skill"> Information Architecture</span>
+              <span class="skill"> Typography</span>
+              <span class="skill"> Color Theory</span>
+              <span class="skill"> User Flows</span>
+              <span class="skill"> Usability Testing</span>
+              <span class="skill"> Responsive Design</span>
+              <span class="skill"> Grid Systems</span>
+            </article>
+            <article
+              id="for-protocols"
+              class="skills gap-2.5 flex-row flex-wrap"
+            >
+              <span>test</span> <span>test</span> <span>test</span>
+              <span>test</span> <span>test</span>
+            </article>
+            <article
+              id="for-methodology"
+              class="skills gap-2.5 flex-row flex-wrap"
+            >
+              <span class="skill">Waterfall</span>
+              <span class="skill">Agile</span>
+              <span class="skill">Scrum</span>
+              <span class="skill">Kanban</span>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section
+        class="bg-[#CBD5E1] z-[20] flex flex-col py-9 576:py-[60px] 768:py-[76px] 1024:py-[120px] 1280:pt-[132px] 1280:pb-[163px] gap-8 576:gap-[72px]"
+        id="competitions"
+      >
+        <div
+          class="flex flex-col 1024:flex-row w-full 1024:gap-2 1024:items-center 1024:justify-center justify-start gap-4 576:gap-6"
+        >
+          <h2 class="text-[48px] font-bold text-[#DC1F1F] 576:text-[72px]">
+            Компетенции
+          </h2>
+          <p
+            class="font-normal text-[22px] text-[#020617] max-w-[500px] w-full"
+          >
+            Наш опыт и живой интерес к сложным задачам помогают нам находить
+            нетривиальные решения.
+          </p>
+        </div>
+        <ul
+          class="text-[28px] px-4 576:px-12 font-semibold text-[#020617] 576:text-[40px] 768:text-[54px]"
+        >
+          <li class="flex flex-row gap-4 576:gap-[72px]">
+            <span>01</span
+            ><span>Консультация и Помощь в разработке стартапов.</span>
+          </li>
+          <li class="flex flex-row gap-4 576:gap-[72px]">
+            <span>02</span><span>Обучение и интеграция ML моделей</span>
+          </li>
+          <li class="flex flex-row gap-4 576:gap-[72px]">
+            <span>03</span
+            ><span>Разработка веб-сервисов c интеграцией ML решений </span>
+          </li>
+          <li class="flex flex-row gap-4 576:gap-[72px]">
+            <span>04</span><span>Пресейл/проектирование</span>
+          </li>
+          <li class="flex flex-row gap-4 576:gap-[72px]">
+            <span>05</span><span>Аудит решений</span>
+          </li>
+        </ul>
+      </section>
+      <section
+        class="px-4 576:px-[60px] w-full 768:px-[66px] 1024:px-[200px] py-[60px] 768:py-[120px] justify-start gap-[34px] flex flex-col bg-[#020617] z-[20] 1024:pt-[208px] 1024:pb-[200px] 1024:justify-center 1024:gap-[66px] 1024:flex-row"
+        id="contacts"
+      >
+        <h2
+          class="font-bold text-[48px] text-[#DC1F1F] 576:text-[72px] 1280:min-w-[374px]"
+        >
+          О нас
+        </h2>
+        <div
+          class="flex flex-col flex-1 gap-[60px] justify-start 768:gap-[176px]"
+        >
+          <p class="font-normal text-[#FEE2E2] text-[18px] 1024:text-[24px]">
+            Мы — небольшая команда экспертов, выполняющая задачи по всему миру и
+            специализирующаяся на передовых решениях. Мы помогаем бизнесу,
+            стартапам и брендам расти и побеждать, превращая идеи в
+            функциональные решения. Мы тесно сотрудничаем с нашими клиентами,
+            чтобы понять потребности и цели продукта, ведь общение — ключ к
+            успеху проекта.
+          </p>
+          <div class="flex flex-row flex-wrap gap-8">
+            <img
+              src="./img/people/firstHuman.png"
+              alt="photo of a guy"
+              class="w-[135px] h-auto 576:w-[283px] 768:w-[220px]"
+            />
+            <img
+              src="./img/people/secondHuman.png"
+              class="w-[135px] h-auto 576:w-[283px] 768:w-[220px]"
+              alt="photo of a guy"
+            />
+            <img
+              src="./img/people/thirdHuman.png"
+              class="w-[135px] h-auto 576:w-[283px] 768:w-[220px]"
+              alt="photo of a girl"
+            />
+            <img
+              src="./img/people/fourthHuman.png"
+              class="w-[135px] h-auto 576:w-[283px] 768:w-[220px]"
+              alt="photo of a girl"
+            />
+            <img
+              src="./img/people/fifthHuman.png"
+              class="w-[135px] h-auto 576:w-[283px] 768:w-[220px]"
+              alt="photo of a girl"
+            />
+            <img
+              src="./img/people/sixthHuman.png"
+              class="w-[135px] h-auto 576:w-[283px] 768:w-[220px]"
+              alt="photo of a girl"
+            />
+            <img
+              src="./img/people/seventhHuman.png"
+              class="w-[135px] h-auto 576:w-[283px] 768:w-[220px]"
+              alt="photo of a girl"
+            />
+          </div>
+        </div>
+      </section>
+      <section
+        id="section-form"
+        class="bg-[#fffff] max-w-[778px] z-[20] w-full m-auto flex flex-col justify-start py-8 px-4 gap-4 576:py-[56px] 576:px-[60px] 576:gap-[51px] 768:py-[104px] 768:px-[0px]"
+      >
+        <h2 class="text-[#FF4949] font-bold text-[34px]">О чем поговорим?</h2>
+        <div class="flex flex-col gap-3">
+          <p class="text-[#000000] text-base font-semibold">Услуга</p>
+          <div class="flex flex-row flex-wrap gap-2" id="services">
+            <p
+              id="architecture"
+              class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer inactive-service"
+            >
+              Архитектура/Разработка ТЗ
+            </p>
+            <p
+              id="neural-networks"
+              class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer inactive-service"
+            >
+              Нейросети/МЛ
+            </p>
+            <p
+              id="develop"
+              class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer inactive-service"
+            >
+              Разработка решений
+            </p>
+            <p
+              id="design"
+              class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer inactive-service"
+            >
+              Продуктовый дизайн
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-3">
+          <p class="font-semibold text-base text-[#000000]">
+            Бюджет в млн. RUB, ₽
+          </p>
+          <div id="budget" class="flex flex-row flex-wrap gap-2">
+            <p
+              id="first-budget"
+              class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer inactive-service"
+            >
+              1 - 1.5
+            </p>
+            <p
+              id="second-budget"
+              class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer inactive-service"
+            >
+              1,5 - 5
+            </p>
+            <p
+              id="third-budget"
+              class="py-2 px-4 rounded-full font-normal text-xl cursor-pointer inactive-service"
+            >
+              5 - выше
+            </p>
+          </div>
+        </div>
+        <form id="form" class="flex flex-col gap-3 w-full">
+          <div class="flex flex-col gap-3 1024:flex-row min-w-full">
+            <input
+              placeholder="Ваше имя"
+              class="border rounded-full w-full 1024:w-1/2 py-4 px-7 text-[#000000] border-solid border-[#94A3B8] bg-[#F8FAFC] placeholder:text-[#94A3B8] placeholder:text-xl text-xl placeholder:font-normal"
+            />
+            <input
+              placeholder="Email"
+              class="border rounded-full py-4 px-7 w-full 1024:w-1/2 text-[#000000] border-solid bg-[#F8FAFC] border-[#94A3B8] placeholder:text-[#94A3B8] placeholder:text-xl text-xl placeholder:font-normal"
+            />
+          </div>
+          <input
+            placeholder="Поделитесь деталями проекта"
+            class="border rounded-full py-4 px-7 w-full text-[#000000] bg-[#F8FAFC] border-solid border-[#94A3B8] placeholder:text-[#94A3B8] placeholder:text-xl text-xl placeholder:font-normal"
+          />
+          <button
+            class="w-full rounded-full bg-[#DC1F1F] py-3 px-4 text-xl font-normal text-[#F8FAFC] 1280:max-w-[146px]"
+          >
+            Отправить
+          </button>
+        </form>
+      </section>
+      <aside
+        class="bg-[#020617] hide-sidebar scrollbar-hide overflow-hidden p-8 gap-[72px] top-0 left-0 z-[50]"
+        id="sidebar"
+      >
+        <div class="flex flex-row justify-between items-center">
+          <svg
+            width="103"
+            height="24"
+            viewBox="0 0 103 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M90.3602 23.5102V6.85714H95.7153V8.8C96.216 7.94014 96.8799 7.31429 97.7071 6.92245C98.5344 6.53061 99.4323 6.33469 100.401 6.33469C100.771 6.33469 101.103 6.35646 101.397 6.4C101.691 6.44354 101.979 6.49252 102.262 6.54694L101.626 12.049C101.255 11.9184 100.864 11.815 100.45 11.7388C100.036 11.6517 99.6228 11.6082 99.2092 11.6082C98.1969 11.6082 97.3588 11.902 96.6949 12.4898C96.0418 13.0667 95.7153 13.9156 95.7153 15.0367V23.5102H90.3602Z"
+              fill="#F8FAFC"
+            />
+            <path
+              d="M77.9668 24C76.1491 24 74.5437 23.6027 73.1505 22.8082C71.7573 22.0027 70.6634 20.9306 69.8689 19.5918C69.0852 18.2531 68.6934 16.7837 68.6934 15.1837C68.6934 14.019 68.9165 12.9088 69.3627 11.8531C69.8199 10.7864 70.4621 9.8449 71.2893 9.02857C72.1165 8.20136 73.0961 7.55374 74.2281 7.08571C75.36 6.6068 76.6063 6.36735 77.9668 6.36735C79.7845 6.36735 81.39 6.77007 82.7832 7.57551C84.1764 8.37007 85.2648 9.43673 86.0485 10.7755C86.8321 12.1143 87.224 13.5837 87.224 15.1837C87.224 16.3483 87.0008 17.4639 86.5546 18.5306C86.1083 19.5864 85.4716 20.5224 84.6444 21.3388C83.8172 22.1551 82.8376 22.8027 81.7056 23.2816C80.5736 23.7605 79.3274 24 77.9668 24ZM77.9668 19.3959C78.7287 19.3959 79.4145 19.2272 80.024 18.8898C80.6335 18.5415 81.1124 18.0517 81.4607 17.4204C81.809 16.7891 81.9832 16.0435 81.9832 15.1837C81.9832 14.3129 81.809 13.5673 81.4607 12.9469C81.1233 12.3156 80.6498 11.8313 80.0403 11.4939C79.4308 11.1456 78.7396 10.9714 77.9668 10.9714C77.194 10.9714 76.5029 11.1456 75.8934 11.4939C75.2838 11.8313 74.8049 12.3156 74.4566 12.9469C74.1083 13.5673 73.9342 14.3129 73.9342 15.1837C73.9342 16.0435 74.1083 16.7891 74.4566 17.4204C74.8158 18.0517 75.3002 18.5415 75.9097 18.8898C76.5192 19.2272 77.2049 19.3959 77.9668 19.3959Z"
+              fill="#F8FAFC"
+            />
+            <path
+              d="M59.2089 23.9673C57.6633 23.9673 56.2484 23.7769 54.964 23.3959C53.6906 23.015 52.5912 22.4762 51.6661 21.7796L53.3314 18.1061C54.2348 18.683 55.2035 19.1401 56.2375 19.4775C57.2715 19.8041 58.2511 19.9673 59.1763 19.9673C60.0253 19.9673 60.6729 19.8531 61.1191 19.6245C61.5654 19.385 61.7885 19.0422 61.7885 18.5959C61.7885 18.2041 61.5817 17.9156 61.1681 17.7306C60.7654 17.5456 59.9708 17.3442 58.7844 17.1265C56.5423 16.7456 54.8987 16.1197 53.8538 15.249C52.8198 14.3673 52.3028 13.1646 52.3028 11.6408C52.3028 10.5524 52.6021 9.6 53.2008 8.78367C53.7994 7.96735 54.6266 7.33605 55.6824 6.8898C56.7491 6.43265 57.9736 6.20408 59.3559 6.20408C60.7055 6.20408 61.979 6.38367 63.1763 6.74286C64.3844 7.10204 65.4184 7.60272 66.2783 8.2449L64.662 11.9184C64.2157 11.581 63.6987 11.2816 63.111 11.0204C62.5341 10.7592 61.9355 10.5578 61.315 10.4163C60.6946 10.2748 60.0906 10.2041 59.5028 10.2041C58.7736 10.2041 58.1804 10.3184 57.7232 10.5469C57.277 10.7646 57.0538 11.0694 57.0538 11.4612C57.0538 11.8639 57.2497 12.1633 57.6416 12.3592C58.0334 12.5551 58.8171 12.7782 59.9926 13.0286C62.3654 13.5075 64.047 14.1551 65.0375 14.9714C66.028 15.7769 66.5232 16.9088 66.5232 18.3673C66.5232 19.4993 66.213 20.4844 65.5926 21.3224C64.9831 22.1605 64.1287 22.8136 63.0293 23.2816C61.9409 23.7388 60.6674 23.9673 59.2089 23.9673Z"
+              fill="#F8FAFC"
+            />
+            <path
+              d="M43.1344 23.5102V0H48.4895V23.5102H43.1344Z"
+              fill="#F8FAFC"
+            />
+            <path
+              d="M31.6324 24C29.8038 24 28.1984 23.6354 26.8161 22.9061C25.4338 22.166 24.3562 21.1374 23.5834 19.8204C22.8106 18.4925 22.4242 16.9415 22.4242 15.1673C22.4242 13.883 22.6474 12.702 23.0936 11.6245C23.5508 10.5469 24.1821 9.61633 24.9875 8.83265C25.8038 8.04898 26.7617 7.4449 27.861 7.02041C28.9712 6.58503 30.1902 6.36735 31.5181 6.36735C32.9766 6.36735 34.2773 6.62857 35.4202 7.15102C36.563 7.66258 37.5045 8.38095 38.2446 9.30612C38.9957 10.2204 39.5127 11.3034 39.7957 12.5551C40.0787 13.7959 40.0895 15.1456 39.8283 16.6041H27.3222C27.3331 17.2571 27.529 17.8286 27.91 18.3184C28.2909 18.8082 28.8133 19.1946 29.4773 19.4775C30.1412 19.7497 30.914 19.8857 31.7957 19.8857C32.7753 19.8857 33.7059 19.7605 34.5875 19.5102C35.4691 19.249 36.3127 18.8517 37.1181 18.3184L38.7997 21.9429C38.2882 22.3347 37.6242 22.6884 36.8079 23.0041C36.0025 23.3088 35.1426 23.5483 34.2283 23.7224C33.3249 23.9075 32.4596 24 31.6324 24ZM27.6487 12.9959H34.7344C34.7127 12.1578 34.4025 11.4884 33.8038 10.9878C33.2052 10.4871 32.3943 10.2367 31.3712 10.2367C30.3372 10.2367 29.4773 10.4871 28.7916 10.9878C28.1168 11.4884 27.7358 12.1578 27.6487 12.9959Z"
+              fill="#F8FAFC"
+            />
+            <path
+              d="M12 24C9.6381 24 7.55374 23.5156 5.74694 22.5469C3.94014 21.5782 2.53061 20.2068 1.51837 18.4327C0.506122 16.6585 0 14.5633 0 12.1469C0 10.3837 0.293878 8.77279 0.881633 7.31429C1.48027 5.8449 2.31837 4.57687 3.39592 3.5102C4.48435 2.44354 5.76327 1.62177 7.23265 1.0449C8.71292 0.457142 10.3293 0.163265 12.0816 0.163265C13.9864 0.163265 15.5864 0.402721 16.8816 0.881633C18.1769 1.36054 19.3469 2.04082 20.3918 2.92245L17.6816 7.37959C17.0503 6.72653 16.2884 6.24218 15.3959 5.92653C14.5034 5.6 13.5184 5.43674 12.4408 5.43674C11.3742 5.43674 10.4218 5.59456 9.58367 5.9102C8.75646 6.21497 8.04898 6.65578 7.46123 7.23265C6.88435 7.80952 6.44354 8.50612 6.13878 9.32245C5.83401 10.1388 5.68163 11.0531 5.68163 12.0653C5.68163 13.4585 5.95374 14.6503 6.49796 15.6408C7.05306 16.6313 7.84218 17.3932 8.86531 17.9265C9.88844 18.449 11.1129 18.7102 12.5388 18.7102C13.5619 18.7102 14.5742 18.5578 15.5755 18.2531C16.5878 17.9374 17.5456 17.4313 18.449 16.7347L20.9306 21.2898C19.8748 22.1061 18.6122 22.7646 17.1429 23.2653C15.6735 23.7551 13.9592 24 12 24Z"
+              fill="#F8FAFC"
+            />
+          </svg>
+          <svg
+            id="cross"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M5.64645 5.64645C5.84171 5.45118 6.15829 5.45118 6.35355 5.64645L12 11.2929L17.6464 5.64645C17.8417 5.45118 18.1583 5.45118 18.3536 5.64645C18.5488 5.84171 18.5488 6.15829 18.3536 6.35355L12.7071 12L18.3536 17.6464C18.5488 17.8417 18.5488 18.1583 18.3536 18.3536C18.1583 18.5488 17.8417 18.5488 17.6464 18.3536L12 12.7071L6.35355 18.3536C6.15829 18.5488 5.84171 18.5488 5.64645 18.3536C5.45118 18.1583 5.45118 17.8417 5.64645 17.6464L11.2929 12L5.64645 6.35355C5.45118 6.15829 5.45118 5.84171 5.64645 5.64645Z"
+              fill="white"
+            />
+          </svg>
+        </div>
+        <article class="flex flex-col justify-start gap-4 h-[80vh] pt-[72px]">
+          <a
+            class="text-2xl font-normal text-[#F8FAFC]"
+            id="sidebar-stack"
+            href="#stack"
+            >Стек</a
+          >
+          <a
+            class="text-2xl font-normal text-[#F8FAFC]"
+            id="sidebar-competitions"
+            href="#competitions"
+            >Компетенции</a
+          >
+          <a
+            class="text-2xl font-normal text-[#F8FAFC]"
+            href="#contacts"
+            id="sidebar-contacts"
+            >Контакты</a
+          >
+        </article>
+        <button
+          id="go-to-form"
+          class="w-full rounded-full bg-[#DC1F1F] py-3 px-4 text-xl font-normal text-[#F8FAFC]"
+        >
+          Заполнить бриф
+        </button>
+      </aside>
+    </main>
+    <script>
+      const header = document.getElementById("header");
+
+      $(window).scroll(function () {
+        // section-stack
+        const sectionStackTop = $("#section-stack").offset().top;
+        const sectionStackHeight = $("#section-stack").outerHeight();
+
+        // competitions
+        const competitionsTop = $("#competitions").offset().top;
+        const competitionsHeight = $("#competitions").outerHeight();
+
+        // contacts
+        const contactsTop = $("#contacts").offset().top;
+        const contactsHeight = $("#contacts").outerHeight();
+
+        // section-form
+        const sectionFormTop = $("#section-form").offset().top;
+        const sectionFormHeight = $("#section-form").outerHeight();
+
+        const windwowHeight = $(window).height();
+        const windowScroll = $(this).scrollTop();
+        const headerHeight = $("#header").height() * 2.5;
+
+        if (
+          windowScroll <=
+          sectionStackTop + sectionStackHeight - headerHeight
+        ) {
+          $("#header").removeClass("header-grey").addClass("header-white");
+          $("#header > nav > a")
+            .removeClass("header-grey")
+            .addClass("header-white");
+        }
+        if (
+          windowScroll > sectionStackTop + sectionStackHeight - headerHeight &&
+          windowScroll <= competitionsTop + competitionsHeight - headerHeight
+        ) {
+          $("#header")
+            .removeClass("header-white")
+            .removeClass("header-dark")
+            .addClass("header-grey");
+          $("#header > nav > a")
+            .removeClass("header-white")
+            .removeClass("header-dark")
+            .addClass("header-grey");
+          $("#logo").removeClass("logo-white").addClass("logo-color");
+          $("#burger-icon")
+            .removeClass("burger-white")
+            .addClass("burger-color");
+        }
+        if (
+          windowScroll > competitionsTop + competitionsHeight - headerHeight &&
+          windowScroll <= contactsTop + contactsHeight - headerHeight
+        ) {
+          $("#header")
+            .removeClass("header-white")
+            .removeClass("header-grey")
+            .addClass("header-dark");
+          $("#header > nav > a")
+            .removeClass("header-white")
+            .removeClass("header-grey")
+            .addClass("header-dark");
+          $("#logo").removeClass("logo-color").addClass("logo-white");
+          $("#burger-icon")
+            .removeClass("burger-color")
+            .addClass("burger-white");
+        }
+        if (
+          windowScroll > contactsTop + contactsHeight - headerHeight &&
+          windowScroll <= sectionFormTop + sectionFormHeight - headerHeight
+        ) {
+          $("#header").removeClass("header-dark").addClass("header-white");
+          $("#header > nav > a")
+            .removeClass("header-dark")
+            .addClass("header-white");
+          $("#logo").removeClass("logo-white").addClass("logo-color");
+          $("#burger-icon")
+            .removeClass("burger-white")
+            .addClass("burger-color");
+        }
+      });
+
+      // $(document).ready(function () {
+      //   const $sidebar = $("#sidebar");
+
+      //   // Функция для показа и скрытия сайдбара
+      //   function toggleSidebar(show) {
+      //     if (show) {
+      //       $sidebar.addClass("show-sidebar").removeClass("hide-sidebar");
+      //     } else {
+      //       $sidebar.removeClass("show-sidebar").addClass("hide-sidebar");
+      //     }
+      //   }
+
+      //   // Начальное состояние сайдбара
+      //   toggleSidebar(false);
+
+      //   // Обработчик клика для бургер-иконки
+      //   $("#burger-icon").on("click", function () {
+      //     toggleSidebar(true);
+      //   });
+
+      //   // Обработчик кликов для закрытия сайдбара
+      //   $(
+      //     "#cross, #sidebar-stack, #sidebar-competitions, #sidebar-contacts"
+      //   ).on("click", function () {
+      //     toggleSidebar(false);
+      //   });
+
+      //   // Обработчик клика для перехода к форме
+      //   $("#go-to-form").on("click", function () {
+      //     toggleSidebar(false);
+      //     $("#form")[0].scrollIntoView();
+      //   });
+      // });
+
+      $(document).ready(function () {
+        const $sidebar = $("#sidebar");
+
+        // Функция для показа и скрытия сайдбара
+        function toggleSidebar(show) {
+          if (show) {
+            $sidebar.removeClass("hide-sidebar").addClass("show-sidebar");
+          } else {
+            $sidebar.removeClass("show-sidebar").addClass("hide-sidebar");
+          }
+        }
+
+        // Начальное состояние сайдбара
+        toggleSidebar(false);
+
+        // Обработчик клика для бургер-иконки
+        $("#burger-icon").on("click", function () {
+          toggleSidebar(true);
+        });
+
+        // Обработчик кликов для закрытия сайдбара
+        $(
+          "#cross, #sidebar-stack, #sidebar-competitions, #sidebar-contacts"
+        ).on("click", function () {
+          toggleSidebar(false);
+        });
+
+        // Обработчик клика для перехода к форме
+        $("#go-to-form").on("click", function () {
+          toggleSidebar(false);
+          $("#form")[0].scrollIntoView();
+        });
+      });
+
+      $(document).ready(function () {
+        $("#list span").click(function () {
+          // Получаем ID элемента, который был нажат
+          var selectedId = $(this).attr("id");
+          var targetArticle = $("#for-" + selectedId);
+
+          // Убираем класс visible у всех элементов перед анимацией
+          targetArticle.find(".skill").removeClass("visible");
+
+          // Запускаем анимацию
+          targetArticle.find(".skill").each(function (index) {
+            $(this)
+              .delay(index * 200)
+              .queue(function (next) {
+                // Задержка для последовательного появления
+                $(this).addClass("visible"); // Добавляем класс visible
+                next(); // Переход к следующему элементу в очереди
+              });
+          });
+        });
+      });
+
+      $(document).ready(function () {
+        // Скрываем все элементы с классом .skills, кроме первого
+        $(".skills").hide();
+        $("#for-machine-learning").show(250).css("display", "flex");
+
+        // Обработчик клика для всех элементов списка
+        $("#list > span").on("click", function () {
+          // Убираем класс active у всех и добавляем inactive
+          $("#list > span.active").removeClass("active").addClass("inactive");
+
+          // Добавляем класс active к текущему элементу и убираем inactive
+          $(this).addClass("active").removeClass("inactive");
+
+          // Скрываем все элементы .skills
+          $(".skills").hide(250);
+
+          // Получаем ID текущего элемента и показываем соответствующий блок
+          const targetId = $(this).attr("id");
+          $(`#for-${targetId}`).show(250).css("display", "flex");
+        });
+      });
+
+      document.addEventListener("scroll", function () {
+        const scrollTop = document.documentElement.scrollTop;
+        if (scrollTop < 15) {
+          $("#header").removeClass("header-next");
+        }
+        if (scrollTop > 15) {
+          $("#header").addClass("header-next");
+        }
+      });
+
+      document.addEventListener("scroll", function () {
+        const scrollTop = document.documentElement.scrollTop;
+        const ball = $("#ball");
+
+        // Удаляем все классы
+        ball.removeClass(
+          "first-place-ball second-place-ball third-place-ball fourth-place-ball"
+        );
+
+        // Определяем класс на основе scrollTop
+        if (scrollTop < 1) {
+          ball.addClass("first-place-ball");
+        } else if (scrollTop < 500) {
+          ball.addClass("second-place-ball");
+        } else if (scrollTop < 800) {
+          ball.addClass("third-place-ball");
+        } else {
+          ball.addClass("fourth-place-ball");
+        }
+      });
+
+      $(document).ready(function () {
+        // Общая функция для обработки кликов
+        function handleServiceClick(selectedId, container) {
+          // Убираем активный класс у всех активных элементов
+          $(`${container} > p.active-service`)
+            .removeClass("active-service")
+            .addClass("inactive-service");
+
+          // Добавляем активный класс к выбранному элементу
+          $(`#${selectedId}`)
+            .addClass("active-service")
+            .removeClass("inactive-service");
+        }
+
+        // Обработчик кликов для элементов с классом services
+        $("#services > p").on("click", function () {
+          handleServiceClick(this.id, "#services");
+        });
+
+        // Обработчик кликов для элементов с классом budget
+        $("#budget > p").on("click", function () {
+          handleServiceClick(this.id, "#budget");
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,288 @@
+@font-face {
+  font-family: "SFPro";
+  src: url("./fonts/SFProDisplay-Regular.ttf") format("truetype");
+  font-weight: medium;
+  font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "SFPro", system-ui, sans-serif;
+    background-color: #f8fafc;
+    overflow-x: hidden;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "SFPro", sans-serif;
+  scroll-behavior: smooth;
+}
+
+* ::-webkit-scrollbar {
+  display: none;
+}
+
+header {
+  display: flex;
+  transition: height, padding 1s ease;
+  padding-bottom: 80px;
+  .logo {
+    transition: all 1s ease;
+    position: absolute;
+    top: 150px;
+    width: calc(100% - 400px);
+  }
+}
+
+@media (max-width: 1024px) {
+  header {
+    .logo {
+      transition: all 1s ease;
+      position: absolute;
+      top: 100px;
+      width: calc(100% - 120px);
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  header {
+    .logo {
+      transition: all 1s ease;
+      position: absolute;
+      top: 60px;
+      width: calc(100% - 32px);
+    }
+  }
+}
+
+.header-next {
+  .logo {
+    top: 33px;
+    left: 200px;
+    width: 102px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .header-next {
+    .logo {
+      top: 33px;
+      left: 200px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .header-next {
+    .logo {
+      top: 33px;
+      left: 60px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header-next {
+    .logo {
+      top: 25px;
+      left: 10px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .header-next {
+    .logo {
+      top: 12px;
+      left: 16px;
+    }
+  }
+}
+
+.header-white {
+  color: #020617;
+  background-color: #f8fafc;
+}
+
+.header-grey {
+  color: #020617;
+  background-color: #cbd5e1;
+}
+
+.logo-color {
+  fill: #450303;
+}
+
+.logo-white {
+  fill: #ffffff;
+}
+
+.burger-color {
+  fill: #020617;
+}
+
+.burger-white {
+  fill: #ffffff;
+}
+
+.header-dark {
+  color: #f8fafc;
+  background-color: #020617;
+}
+
+input:focus {
+  outline: none;
+}
+
+input:-webkit-autofill {
+  -webkit-background-clip: text;
+}
+
+#for-machine-learning {
+  display: none;
+}
+
+#for-protocols {
+  display: none;
+}
+
+/* .skills {
+  display: none;
+} */
+.inactive {
+  color: #020617;
+}
+
+.inactive:hover {
+  color: red;
+}
+
+.active {
+  color: red;
+}
+
+.active-service {
+  background-color: #dc1f1f;
+  color: #f8fafc;
+}
+
+.inactive-service {
+  border: 1px solid #94a3b8;
+  background-color: transparent;
+  color: #020617;
+}
+
+.inactive-service:hover {
+  background-color: #dc1f1f;
+  color: #f8fafc;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* .show-sidebar {
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0px;
+  z-index: 50;
+  overflow: hidden;
+}
+
+.hide-sidebar {
+  display: none;
+} */
+
+.show-sidebar {
+  display: block; /* Убедитесь, что он отображается */
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  z-index: 50;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out; /* Настройте длительность по необходимости */
+}
+
+.hide-sidebar {
+  height: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out; /* Соответствует переходу show-sidebar */
+  pointer-events: none; /* Запретить взаимодействие, когда скрыто */
+}
+
+.first-place-ball {
+  transform: translate(30%, 30vh);
+}
+
+@media (max-width: 576px) {
+  .first-place-ball {
+    transform: translate(0%, 450px);
+  }
+}
+
+.second-place-ball {
+  transform: translate(80%, 30vh);
+}
+
+@media (max-width: 576px) {
+  .second-place-ball {
+    transform: translate(0%, 300px);
+  }
+}
+
+.third-place-ball {
+  transform: translate(30%, 600px);
+}
+
+@media (max-width: 576px) {
+  .third-place-ball {
+    transform: translate(40%, 900px);
+  }
+}
+
+.fourth-place-ball {
+  transform: translate(5%, 1300px);
+}
+
+@media (max-width: 576px) {
+  .fourth-place-ball {
+    transform: translate(50%, 1550px);
+  }
+}
+
+.skills {
+  display: none;
+  flex-wrap: wrap;
+}
+
+.skill {
+  background-color: #e2e8f0;
+  color: #334155;
+  padding: 6px 14px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(-30px) scale(0);
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+.skill.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
